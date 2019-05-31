@@ -9,7 +9,11 @@ var pattern = []; //needs a reset
 var letterGuessed = []; //needs a reset
 var charLoc = []; //needs a reset
 var correctGuess = 0; //needs a reset
-
+var winT = document.getElementById("winText");
+var patternT = document.getElementById("patternText");
+var guessNumT = document.getElementById("guessNumText");
+var lettersT = document.getElementById("lettersText");
+//winText, patternText, guessNumText, lettersText
 play();
 //create a function method to start from scratch and encapsulate 
 //if playing again reset sushi choice, length, and underscores, remove word from dictionary 
@@ -35,6 +39,8 @@ function underScores(x){
 document.onkeyup = function(event){
 
   var guesses = event.key;
+  gameStats();
+
   if (letterGuessed.indexOf(guesses) === -1){
     letterGuessed.push(guesses);
 
@@ -49,6 +55,7 @@ document.onkeyup = function(event){
     console.log("you already used that letter " + guesses);
 
   }
+  gameStats();
 
 }
 
@@ -63,6 +70,7 @@ function check(letter){
 
   if(charLoc.length === 0){
     guessRemain--;
+
   }
   
 }
@@ -108,4 +116,11 @@ function reset(){
   letterGuessed.length = 0;
   correctGuess = 0;
   play();
+}
+
+function gameStats(){
+  winT.textContent = win;
+  patternT.textContent = pattern;
+  guessNumT.textContent = guessRemain;
+  lettersT.textContent = letterGuessed;
 }
