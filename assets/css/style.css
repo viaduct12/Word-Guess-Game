@@ -1,0 +1,17 @@
+.jumbotron{
+  background-image: url(../images/jumboBg.jpg);
+  background-size: cover;
+}
+
+h1{
+  /* background-color: azure; */
+  margin-bottom: 0%;
+}
+
+#banner{
+  max-width: 45%;
+}
+
+/* .lead{
+  background-color: azure;
+} */
