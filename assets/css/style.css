@@ -1,3 +1,11 @@
+/* html{
+  background-color: black;
+} */
+
+body{
+  background-color: black;
+}
+
 .jumbotron{
   background-image: url(../images/jumboBg.jpg);
   background-size: cover;
@@ -12,6 +20,6 @@ h1{
   max-width: 45%;
 }
 
-/* .lead{
-  background-color: azure;
-} */
+.colorMe{
+  background-color: olivedrab;
+}
