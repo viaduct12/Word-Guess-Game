@@ -95,16 +95,21 @@ function checkStatus(){
 function gameOver(x){
   if(x === 1){
     win++;
+    wordT.textContent = "You Win!";
     imgT.setAttribute("src", "http://www.randomkittengenerator.com/cats/rotator.php");
-
   } else if (x === -1){
     lose++;
+    wordT.textContent = "You Lose!";
     imgT.setAttribute("src", "http://www.hereinreality.com/funny_pictures/randim.php");
     if(lose === 3){
+      
       alert("Just quit... go and do something productive.");
     }
   }
-  wordT.textContent = sushiChoice + " roll";
+  setTimeout(function(){
+    wordT.textContent = sushiChoice + " roll";
+  }, 1000);
+  
   setTimeout(function(){
     reset();
   }, 2000);
@@ -118,6 +123,7 @@ function reset(){
   correctGuess = 0;
   wordT.textContent = "Play!";
   imgT.removeAttribute("src");
+  gameStats();
   playG();
 }
 
