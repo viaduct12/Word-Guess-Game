@@ -1,4 +1,4 @@
-var sushiDictionary = ["dragon", "california", "rainbow", "spider", "philadelphia", "futomaki", "tiger", "dynamite", "caterpillar", "vegetable"];
+var sushiDictionary = ["dragon", "california", "rainbow", "spider", "philadelphia", "futomaki", "tiger", "dynamite", "caterpillar", "vegetable", "avocado", "crunch", "tempura", "volcano", "tamago", "cucumber", "alaskan", "asparagus", "boston", "atlanta", "carrot", "crazy", "crystal", "fantasy"];
 
 var win = 0; 
 var lose = 0;
@@ -31,6 +31,7 @@ document.onkeyup = function(event){
     //checks to see if the guessed letter is in an array called guesses if not then add to array
     if (letterGuessed.indexOf(guesses) === -1){
       letterGuessed.push(guesses);
+      //checkHM(guesses); evil hangman; work in progress
       check(guesses);
       replace(guesses);
       checkStatus();
@@ -135,3 +136,53 @@ function gameStats(){
   guessNumT.textContent = guessRemain;
   lettersT.textContent = letterGuessed.join(", ");
 }
+
+
+// //===============================================================
+// //messing around now, for future features aka Evil Hangman
+
+// //stores the words of the given length
+// var varyWords = [];
+// //stores the user input for how long the word is
+// var wordLength = prompt("What length word do you want to use?");
+
+// //loops through the entire dictionary to find the same lenght and if there isn't one it will reprompt for a new lenght
+// sushiDictionary.forEach(function(comChoice){
+//   if (parseInt(wordLength) === comChoice.length){
+//     varyWords.push(comChoice);
+//   }
+
+// });
+
+// if (varyWords.length === 0){
+//   wordLength = prompt("We could not find a word length at that size, try again.");
+// }
+
+// function playHM() {
+//   // sushiChoice = sushiDictionary[Math.floor(Math.random() * sushiDictionary.length)];
+
+//   // sushiLength = sushiChoice.length;
+//   guessRemain = (wordLength);
+
+//   underScores(wordLength);
+// }
+
+// //check the entire array if that letter is in the word. if it is remove that word from the array. if there is only one word in the array do nothing
+// function checkHM(letter) {
+//   var varyCounter = varyWords.length;
+//   if (varyWords.length !== 1){
+//     // console.log(varyWords + " hm check");
+//     for (var i = varyWords.length - 1; i >= 0 ; i--){
+//       // console.log(varyWords + " inside for loop" + varyWords.length);
+//       if ((varyWords[i].indexOf(letter) > -1) && varyWords.length > 1){
+//         varyWords.splice(i, 1);
+//       }
+//     }
+//     if(varyCounter > varyWords.length){
+//       guessRemain--;
+//     }
+
+//   } else {
+//     check(letter);
+//   }
+// }
